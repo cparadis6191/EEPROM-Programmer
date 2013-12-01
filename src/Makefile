@@ -17,4 +17,4 @@ flash:
 
 
 clean:
-	rm -rf *.o *.hex *.eeprom
+	rm -rf ${TARGET} ${OBJS}
