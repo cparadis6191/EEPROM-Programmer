@@ -1,5 +1,5 @@
 CC=avr-gcc
-CFLAGS=-Os -Wall -Wextra -mmcu=atxmega128a4u
+CFLAGS=-Os -std=c99 -Wall -Wextra -mmcu=atxmega128a4u
 OBJ2HEX=avr-objcopy
 ADFLAGS=-p x128a4 -c dragon_isp -P usb
 
