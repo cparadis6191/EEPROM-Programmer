@@ -1,6 +1,7 @@
 #ifndef __EEPROM_H_
 #define __EEPROM_H_
 
+
 #define HIGH 1
 #define LOW  0
 
@@ -9,51 +10,33 @@
 #define EEPROM_DATA_OUT EDP.OUT
 #define EEPROM_DATA_IN EDP.IN
 
-// EEPROM Address lines on PORTA and PORTB
-#define EAPL PORTA
+// EEPROM Address lines on PORTB and PORTA
+// ADDR[11..0] is mapped to PORTB[11..8] and PORTA[7..0]
 #define EAPH PORTB
-#define EEPROM_ADDR(ADDR) EAPL.OUT = ADDR, EAPH.OUT = (ADDR >> 8)
+#define EAPL PORTA
+#define EEPROM_ADDR(ADDR) EAPH.OUT = ADDR >> 8; \
+                          EAPL.OUT = ADDR
 
 // All control lines are on PORTD
 #define ECP PORTD
-#define CE0 PIN0_bm
-#define WE0 PIN1_bm
-#define CE1 PIN2_bm
-#define WE1 PIN3_bm
-#define CE2 PIN4_bm
-#define WE2 PIN5_bm
+#define WE2 PIN2_bm
+#define WE1 PIN1_bm
+#define WE0 PIN0_bm
 
-#define EEPROM0_CE(VAL) if (VAL) { ECP.OUTCLR = CE0; \
-						} else { ECP.OUTSET = CE0; }
-#define EEPROM0_WE(VAL) if (VAL) { ECP.OUTCLR = WE0; \
-						} else { ECP.OUTSET = WE0; }
-
-#define EEPROM1_CE(VAL) if (VAL) { ECP.OUTCLR = CE1; \
-						} else { ECP.OUTSET = CE1; }
-#define EEPROM1_WE(VAL) if (VAL) { ECP.OUTCLR = WE1; \
-						} else { ECP.OUTSET = WE1; }
-
-#define EEPROM2_CE(VAL) if (VAL) { ECP.OUTCLR = CE2; \
-						} else { ECP.OUTSET = PICE2; }
 #define EEPROM2_WE(VAL) if (VAL) { ECP.OUTCLR = WE2; \
-						} else { ECP.OUTSET = WE2; }
+                        } else   { ECP.OUTSET = WE2; }
 
-// Maybe don't need these
-// Might just tie them low
-/*#define OE1 PIN0_bm
-#define OE0 PIN0_bm
-#define OE2 PIN0_bm
-#define EEPROM2_OE(VAL) if (VAL) { ECP.OUTCLR = PIN8_bm; \
-						} else { ECP.OUTSET = PIN8_bm; }
-#define EEPROM1_OE(VAL) if (VAL) { ECP.OUTCLR = PIN5_bm; \
-						} else { ECP.OUTSET = PIN5_bm; }
-#define EEPROM0_OE(VAL) if (VAL) { ECP.OUTCLR = PIN2_bm; \
-						} else { ECP.OUTSET = PIN2_bm; }*/
+#define EEPROM1_WE(VAL) if (VAL) { ECP.OUTCLR = WE1; \
+                        } else   { ECP.OUTSET = WE1; }
+
+#define EEPROM0_WE(VAL) if (VAL) { ECP.OUTCLR = WE0; \
+                        } else   { ECP.OUTSET = WE0; }
+
 
 void eeprom_init(void);
 
-void eeprom_write_byte(uint16_t addr, char byte);
-char eeprom_read_byte(uint16_t addr);
+void eeprom_write_word(uint16_t addr, uint32_t word);
+uint32_t eeprom_read_word(uint16_t addr);
 
 
 #endif
