@@ -37,4 +37,4 @@ erase:
 	${AVRDUDE} ${ADFLAGS} -E noreset -e
 
 clean:
-	rm -rf ${TARGET} ${OBJS} ${TARGET}.obj ${TARGET}.hex ${TARGET}.eeprom
+	rm -f ${TARGET} ${OBJS} ${TARGET}.obj ${TARGET}.hex ${TARGET}.eeprom
