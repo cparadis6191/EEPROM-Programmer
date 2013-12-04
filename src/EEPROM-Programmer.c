@@ -1,30 +1,31 @@
-#include <avr/io.h>
 #include <stdlib.h>
 
+#include <avr/io.h>
 
 #include "EEPROM-Programmer.h"
 #include "eeprom.h"
+#include "data.h"
 
 
 int main(void) {
-	uint32_t prog[255] = {};
 	size_t f_size;
+	uint8_t byte;
 
 	eeprom_init();
 
 
-	while (1) {
-		// Read in file
-		// Use either UART or USB
+	// data defined in data.h
+	// data resides in program space instead of main memory
+	f_size = sizeof(data);
 
-		// Find file length
-		f_size = sizeof(prog);
+	for (size_t i = 0; i < f_size; i++) {
+		// Read the byte in from program space
+		byte = pgm_read_byte(&(data[0]));
 
-
-		for (uint16_t i = 0; i < 255; i++) {
-			eeprom_write_word(i, prog[i]);
-		}
+		eeprom_write_word(i, byte);
 	}
+
+	while (1) {}
 
 
 	return 0;
