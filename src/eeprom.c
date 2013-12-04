@@ -1,5 +1,7 @@
-#include <avr/io.h>
 #include <stdint.h>
+
+#include <avr/io.h>
+#include <util/delay_basic.h>
 
 #include "eeprom.h"
 
@@ -8,7 +10,7 @@ void eeprom_init(void) {
 	// Set the address lines as outputs
 	EAPL.DIRSET = PIN7_bm | PIN6_bm | PIN5_bm | PIN4_bm |
 	              PIN3_bm | PIN2_bm | PIN1_bm | PIN0_bm;
-	EAPH.DIRSET = PIN3_bm | PIN2_bm | PIN1_bm | PIN0_bm;
+	EAPH.DIRSET = PIN2_bm | PIN1_bm | PIN0_bm;
 
 	// Set the data lines as outputs
 	EDP.DIRSET = PIN7_bm | PIN6_bm | PIN5_bm | PIN4_bm |
@@ -35,33 +37,37 @@ void eeprom_init(void) {
 *	of t WC , a read operation will effectively be a polling operation.
 */
 void eeprom_write_word(uint16_t addr, uint32_t word) {
-	char byteh, bytem, bytel;
+	char byte_h, byte_m, byte_l;
 
 	// Load address
 	// 50ns address hold time
 	EEPROM_ADDR(addr);
 
 	// Construct each portion of the instruction word
-	byteh = word >> 16;
-	bytem = word >> 8;
-	bytel = word >> 0;
+	byte_h = word >> 16;
+	byte_m = word >> 8;
+	byte_l = word >> 0;
 
 
 	// Load the data bus
 	// 10ns data hold time
-	EEPROM_DATA_IN = byteh;
+	EEPROM_DATA_IN = byte_h;
 	// OE pulled high in hardware
 	// Pull WE low for a minimum of 100ns
 	EEPROM2_WE(LOW);
+	// Delays roughly 256*3/F_CPU microseconds
+	_delay_loop_1(1);
 	// May need to delay
 	EEPROM2_WE(HIGH);
 
-	EEPROM_DATA_IN = bytem;
+	EEPROM_DATA_IN = byte_m;
 	EEPROM1_WE(LOW);
+	_delay_loop_1(1);
 	EEPROM1_WE(HIGH);
 
-	EEPROM_DATA_IN = bytel;
+	EEPROM_DATA_IN = byte_l;
 	EEPROM0_WE(LOW);
+	_delay_loop_1(1);
 	EEPROM0_WE(HIGH);
 
 
