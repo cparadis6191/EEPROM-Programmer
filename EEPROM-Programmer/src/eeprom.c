@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <stdbool.h>
 
 #include <avr/io.h>
 #include <util/delay_basic.h>
@@ -8,9 +9,9 @@
 
 void eeprom_init(void) {
 	// Set the address lines as outputs
+	EAPH.DIRSET = PIN2_bm | PIN1_bm | PIN0_bm;
 	EAPL.DIRSET = PIN7_bm | PIN6_bm | PIN5_bm | PIN4_bm |
 	              PIN3_bm | PIN2_bm | PIN1_bm | PIN0_bm;
-	EAPH.DIRSET = PIN2_bm | PIN1_bm | PIN0_bm;
 
 	// Set the data lines as outputs
 	EDP.DIRSET = PIN7_bm | PIN6_bm | PIN5_bm | PIN4_bm |
@@ -54,21 +55,21 @@ void eeprom_write_word(uint16_t addr, uint32_t word) {
 	EEPROM_DATA_IN = byte_h;
 	// OE pulled high in hardware
 	// Pull WE low for a minimum of 100ns
-	EEPROM2_WE(LOW);
+	EEPROM2_WE(false);
 	// Delays roughly 256*3/F_CPU microseconds
 	_delay_loop_1(1);
 	// May need to delay
-	EEPROM2_WE(HIGH);
+	EEPROM2_WE(true);
 
 	EEPROM_DATA_IN = byte_m;
-	EEPROM1_WE(LOW);
+	EEPROM1_WE(false);
 	_delay_loop_1(1);
-	EEPROM1_WE(HIGH);
+	EEPROM1_WE(true);
 
 	EEPROM_DATA_IN = byte_l;
-	EEPROM0_WE(LOW);
+	EEPROM0_WE(false);
 	_delay_loop_1(1);
-	EEPROM0_WE(HIGH);
+	EEPROM0_WE(true);
 
 
 	return;

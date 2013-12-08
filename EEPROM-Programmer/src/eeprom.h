@@ -2,9 +2,6 @@
 #define __EEPROM_H_
 
 
-#define HIGH 1
-#define LOW  0
-
 // EEPROM Data lines on PORTC
 #define EDP PORTD
 #define EEPROM_DATA_OUT EDP.OUT

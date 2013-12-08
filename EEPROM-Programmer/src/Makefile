@@ -1,8 +1,8 @@
 CC=avr-gcc
-CFLAGS=-Os -std=c99 -Wall -Wextra -mmcu=atxmega128a4u
+CFLAGS=-Os -std=c99 -Wall -Wextra -mmcu=atxmega16a4u
 OBJ2HEX=avr-objcopy
 AVRDUDE=avrdude
-ADFLAGS=-p x128a4 -c dragon_isp -P usb
+ADFLAGS=-p x16a4 -c dragon_pdi -P usb
 
 TARGET=EEPROM-Programmer
 OBJS=${TARGET}.o eeprom.o
