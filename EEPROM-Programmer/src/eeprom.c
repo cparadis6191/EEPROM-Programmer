@@ -18,7 +18,7 @@ void eeprom_init(void) {
 	             PIN3_bm | PIN2_bm | PIN1_bm | PIN0_bm;
 
 	// Set control lines as outputs
-	ECP.DIRSET = WE2 | WE1 | WE0;
+	ECP.DIRSET = WE0;
 
 
 	return;
@@ -37,38 +37,20 @@ void eeprom_init(void) {
 *	gramming operation has been initiated and for the duration
 *	of t WC , a read operation will effectively be a polling operation.
 */
-void eeprom_write_word(uint16_t addr, uint32_t word) {
-	char byte_h, byte_m, byte_l;
-
+void eeprom_write_word(uint16_t addr, uint8_t byte) {
 	// Load address
 	// 50ns address hold time
 	EEPROM_ADDR(addr);
 
-	// Construct each portion of the instruction word
-	byte_h = word >> 16;
-	byte_m = word >> 8;
-	byte_l = word >> 0;
-
-
 	// Load the data bus
 	// 10ns data hold time
-	EEPROM_DATA_IN = byte_h;
+	EDP.OUT = byte;
 	// OE pulled high in hardware
 	// Pull WE low for a minimum of 100ns
-	EEPROM2_WE(false);
+	EEPROM0_WE(false);
 	// Delays roughly 256*3/F_CPU microseconds
 	_delay_loop_1(1);
 	// May need to delay
-	EEPROM2_WE(true);
-
-	EEPROM_DATA_IN = byte_m;
-	EEPROM1_WE(false);
-	_delay_loop_1(1);
-	EEPROM1_WE(true);
-
-	EEPROM_DATA_IN = byte_l;
-	EEPROM0_WE(false);
-	_delay_loop_1(1);
 	EEPROM0_WE(true);
 
 
@@ -85,4 +67,4 @@ void eeprom_write_word(uint16_t addr, uint32_t word) {
 *	control gives designers increased flexibility in preventing
 *	bus contention.
 */
-uint32_t eeprom_read_word(uint16_t addr) { return (char) addr; }
+uint8_t eeprom_read_word(uint16_t addr) { return (char) addr; }
