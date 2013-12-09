@@ -25,3 +25,4 @@
 # Misc.
 *.eeprom
 *.bin
+data.h
