@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdbool.h>
 
 #include <avr/io.h>
 
@@ -10,7 +9,7 @@
 
 
 int main(void) {
-	size_t f_size;
+	size_t d_size;
 	uint8_t byte;
 
 	io_init();
@@ -19,14 +18,24 @@ int main(void) {
 
 	// data defined in data.h
 	// data resides in program space instead of main memory
-	f_size = sizeof(data);
+	d_size = sizeof(data);
 
+	LED(true);
 	wait_for_press();
-	for (size_t i = 0; i < f_size; i++) {
+	for (uint16_t addr = 0; addr < d_size; addr++) {
 		// Read the byte in from program space
-		byte = pgm_read_byte(&(data[0]));
+		byte = pgm_read_byte(&(data[addr]));
 
-		eeprom_write_word(i, byte);
+		// Write to external EEPROm
+		eeprom_write_byte(addr, byte);
+	}
+
+	// Read the data out by byte
+	for (uint16_t addr = 0; addr; addr++) {
+		eeprom_read_byte(addr);
+
+		LED_TGL();
+		wait_for_press();
 	}
 	while (1) {}
 
