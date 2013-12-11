@@ -1,8 +1,9 @@
 #include <stdint.h>
-#include <stdbool.h>
 
 #include <avr/io.h>
 #include <util/delay_basic.h>
+#define F_CPU 2000000UL
+#include <util/delay.h>
 
 #include "eeprom.h"
 
@@ -18,7 +19,7 @@ void eeprom_init(void) {
 	             PIN3_bm | PIN2_bm | PIN1_bm | PIN0_bm;
 
 	// Set control lines as outputs
-	ECP.DIRSET = WE0;
+	ECP.DIRSET = WE;
 
 
 	return;
@@ -37,21 +38,27 @@ void eeprom_init(void) {
 *	gramming operation has been initiated and for the duration
 *	of t WC , a read operation will effectively be a polling operation.
 */
-void eeprom_write_word(uint16_t addr, uint8_t byte) {
+void eeprom_write_byte(uint16_t addr, uint8_t byte) {
 	// Load address
 	// 50ns address hold time
-	EEPROM_ADDR(addr);
+	EAPH_ADDR_OUT = addr >> 8;
+	EAPL_ADDR_OUT = addr;
 
 	// Load the data bus
 	// 10ns data hold time
-	EDP.OUT = byte;
+	EEPROM_DATA_OUT = byte;
+
+	// Pull OE high
+	EEPROM_OE(true);
+
 	// OE pulled high in hardware
 	// Pull WE low for a minimum of 100ns
-	EEPROM0_WE(false);
+	EEPROM_WE(false);
 	// Delays roughly 256*3/F_CPU microseconds
-	_delay_loop_1(1);
+	_delay_ms(1);
+	_delay_loop_1(10);
 	// May need to delay
-	EEPROM0_WE(true);
+	EEPROM_WE(true);
 
 
 	return;
@@ -67,4 +74,21 @@ void eeprom_write_word(uint16_t addr, uint8_t byte) {
 *	control gives designers increased flexibility in preventing
 *	bus contention.
 */
-uint8_t eeprom_read_word(uint16_t addr) { return (char) addr; }
+uint8_t eeprom_read_byte(uint16_t addr) {
+	// Pull WE high to disable writing
+	EEPROM_WE(true);
+
+	// Set data port as inputs so the EEPROM can pull on the lines
+	EDP.DIRCLR = PIN7_bm | PIN6_bm | PIN5_bm | PIN4_bm |
+	             PIN3_bm | PIN2_bm | PIN1_bm | PIN0_bm;
+
+	// Point to the desired byte
+	EAPH_ADDR_OUT = addr >> 8;
+	EAPL_ADDR_OUT = addr;
+
+	// Enable the output
+	EEPROM_OE(false);
+
+
+	return EEPROM_DATA_IN;
+}
