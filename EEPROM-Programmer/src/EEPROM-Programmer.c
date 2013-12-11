@@ -29,15 +29,10 @@ int main(void) {
 		// Write to external EEPROm
 		eeprom_write_byte(addr, byte);
 	}
-
-	// Read the data out by byte
-	for (uint16_t addr = 0; addr; addr++) {
-		eeprom_read_byte(addr);
-
+	while (1) {
 		LED_TGL();
-		wait_for_press();
+		_delay_ms(500);
 	}
-	while (1) {}
 
 
 	return 0;
