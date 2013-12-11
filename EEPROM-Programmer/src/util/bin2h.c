@@ -58,10 +58,9 @@ int main(int argc, char **argv) {
 	// Only write specified opcode byte
 	while ((byte = fgetc(bin)) != EOF) {
 		if (byte_n%3 == byte_hml - 1) { 
-
 			fprintf(data_h, "\t0x%x,\n", byte);
 		}
-		++byte_n;
+		byte_n++;
 	}
 
 	// Close the header information
