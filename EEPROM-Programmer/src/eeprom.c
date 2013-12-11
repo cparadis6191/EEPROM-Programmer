@@ -38,6 +38,7 @@ void eeprom_init(void) {
 *	gramming operation has been initiated and for the duration
 *	of t WC , a read operation will effectively be a polling operation.
 */
+#warning "DO NOT USE eeprom_write_byte with a <5V AVR without proper protection!"
 void eeprom_write_byte(uint16_t addr, uint8_t byte) {
 	// Load address
 	// 50ns address hold time
