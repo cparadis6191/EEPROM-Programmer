@@ -5536,8 +5536,8 @@ Source: www.kingbright.com</description>
 </class>
 </classes>
 <parts>
-<part name="XMEGA128A4U" library="atmel" deviceset="XMEGA16A4" device="A"/>
-<part name="EEP0" library="memory" deviceset="2816" device=""/>
+<part name="XMEGA16A4U" library="atmel" deviceset="XMEGA16A4" device="A"/>
+<part name="EEP" library="memory" deviceset="2816" device=""/>
 <part name="R1" library="resistor" deviceset="R-US_" device="0204/2V" value="380"/>
 <part name="R2" library="resistor" deviceset="R-US_" device="0204/2V" value="240"/>
 <part name="SUPPLY2" library="supply2" deviceset="GND" device=""/>
@@ -5551,16 +5551,16 @@ Source: www.kingbright.com</description>
 <sheets>
 <sheet>
 <plain>
-<frame x1="0" y1="0" x2="228.6" y2="127" columns="8" rows="5" layer="91"/>
+<frame x1="0" y1="0" x2="177.8" y2="127" columns="8" rows="5" layer="91"/>
 </plain>
 <instances>
-<instance part="XMEGA128A4U" gate="G$1" x="45.72" y="50.8"/>
-<instance part="EEP0" gate="A" x="111.76" y="40.64"/>
+<instance part="XMEGA16A4U" gate="G$1" x="45.72" y="50.8"/>
+<instance part="EEP" gate="A" x="111.76" y="40.64"/>
 <instance part="R1" gate="G$1" x="109.22" y="83.82" rot="R90"/>
 <instance part="R2" gate="G$1" x="121.92" y="99.06" rot="R90"/>
 <instance part="SUPPLY2" gate="GND" x="109.22" y="73.66"/>
 <instance part="P+1" gate="VCC" x="96.52" y="111.76"/>
-<instance part="EEP0" gate="P" x="109.22" y="15.24" rot="MR270"/>
+<instance part="EEP" gate="P" x="109.22" y="15.24" rot="MR270"/>
 <instance part="PROGRAMMER" gate="1" x="27.94" y="106.68"/>
 <instance part="+3V1" gate="G$1" x="121.92" y="111.76" rot="MR0"/>
 <instance part="LM317" gate="1" x="109.22" y="106.68"/>
@@ -5577,12 +5577,12 @@ Source: www.kingbright.com</description>
 <pinref part="SUPPLY2" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="GND"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="GND"/>
 <wire x1="20.32" y1="50.8" x2="12.7" y2="50.8" width="0.1524" layer="91"/>
 <label x="12.7" y="50.8" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="GND3"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="GND2"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="GND1"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="GND3"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="GND2"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="GND1"/>
 <wire x1="20.32" y1="58.42" x2="20.32" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="55.88" x2="20.32" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="53.34" x2="20.32" y2="50.8" width="0.1524" layer="91"/>
@@ -5592,12 +5592,12 @@ Source: www.kingbright.com</description>
 <junction x="20.32" y="50.8"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="!CE"/>
+<pinref part="EEP" gate="A" pin="!CE"/>
 <wire x1="96.52" y1="27.94" x2="88.9" y2="27.94" width="0.1524" layer="91"/>
 <label x="88.9" y="27.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="P" pin="GND"/>
+<pinref part="EEP" gate="P" pin="GND"/>
 <wire x1="116.84" y1="15.24" x2="124.46" y2="15.24" width="0.1524" layer="91"/>
 <label x="119.38" y="15.24" size="1.778" layer="95"/>
 </segment>
@@ -5609,242 +5609,230 @@ Source: www.kingbright.com</description>
 </net>
 <net name="A8" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PB0"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PB0"/>
 <wire x1="73.66" y1="58.42" x2="81.28" y2="58.42" width="0.1524" layer="91"/>
 <label x="78.74" y="58.42" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A8"/>
+<pinref part="EEP" gate="A" pin="A8"/>
 <wire x1="88.9" y1="38.1" x2="96.52" y2="38.1" width="0.1524" layer="91"/>
 <label x="88.9" y="38.1" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A9" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PB1"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PB1"/>
 <wire x1="73.66" y1="60.96" x2="81.28" y2="60.96" width="0.1524" layer="91"/>
 <label x="78.74" y="60.96" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A9"/>
+<pinref part="EEP" gate="A" pin="A9"/>
 <wire x1="96.52" y1="35.56" x2="88.9" y2="35.56" width="0.1524" layer="91"/>
 <label x="88.9" y="35.56" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A10" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PB2"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PB2"/>
 <wire x1="73.66" y1="63.5" x2="81.28" y2="63.5" width="0.1524" layer="91"/>
 <label x="78.74" y="63.5" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A10"/>
+<pinref part="EEP" gate="A" pin="A10"/>
 <wire x1="88.9" y1="33.02" x2="96.52" y2="33.02" width="0.1524" layer="91"/>
 <label x="88.9" y="33.02" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A0" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA0"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA0"/>
 <wire x1="73.66" y1="71.12" x2="81.28" y2="71.12" width="0.1524" layer="91"/>
 <label x="78.74" y="71.12" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A0"/>
+<pinref part="EEP" gate="A" pin="A0"/>
 <wire x1="96.52" y1="58.42" x2="88.9" y2="58.42" width="0.1524" layer="91"/>
 <label x="88.9" y="58.42" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A1" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA1"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA1"/>
 <wire x1="73.66" y1="73.66" x2="81.28" y2="73.66" width="0.1524" layer="91"/>
 <label x="78.74" y="73.66" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A1"/>
+<pinref part="EEP" gate="A" pin="A1"/>
 <wire x1="96.52" y1="55.88" x2="88.9" y2="55.88" width="0.1524" layer="91"/>
 <label x="88.9" y="55.88" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A2" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA2"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA2"/>
 <wire x1="73.66" y1="76.2" x2="81.28" y2="76.2" width="0.1524" layer="91"/>
 <label x="78.74" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A2"/>
+<pinref part="EEP" gate="A" pin="A2"/>
 <wire x1="88.9" y1="53.34" x2="96.52" y2="53.34" width="0.1524" layer="91"/>
 <label x="88.9" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A3" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA3"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA3"/>
 <wire x1="73.66" y1="78.74" x2="81.28" y2="78.74" width="0.1524" layer="91"/>
 <label x="78.74" y="78.74" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A3"/>
+<pinref part="EEP" gate="A" pin="A3"/>
 <wire x1="96.52" y1="50.8" x2="88.9" y2="50.8" width="0.1524" layer="91"/>
 <label x="88.9" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A4" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA4"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA4"/>
 <wire x1="73.66" y1="81.28" x2="81.28" y2="81.28" width="0.1524" layer="91"/>
 <label x="78.74" y="81.28" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A4"/>
+<pinref part="EEP" gate="A" pin="A4"/>
 <wire x1="88.9" y1="48.26" x2="96.52" y2="48.26" width="0.1524" layer="91"/>
 <label x="88.9" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A5" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA5"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA5"/>
 <wire x1="73.66" y1="83.82" x2="81.28" y2="83.82" width="0.1524" layer="91"/>
 <label x="78.74" y="83.82" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A5"/>
+<pinref part="EEP" gate="A" pin="A5"/>
 <wire x1="96.52" y1="45.72" x2="88.9" y2="45.72" width="0.1524" layer="91"/>
 <label x="88.9" y="45.72" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A6" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA6"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA6"/>
 <wire x1="73.66" y1="86.36" x2="81.28" y2="86.36" width="0.1524" layer="91"/>
 <label x="78.74" y="86.36" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A6"/>
+<pinref part="EEP" gate="A" pin="A6"/>
 <wire x1="88.9" y1="43.18" x2="96.52" y2="43.18" width="0.1524" layer="91"/>
 <label x="88.9" y="43.18" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="A7" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PA7"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PA7"/>
 <wire x1="73.66" y1="88.9" x2="81.28" y2="88.9" width="0.1524" layer="91"/>
 <label x="78.74" y="88.9" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="EEP0" gate="A" pin="A7"/>
+<pinref part="EEP" gate="A" pin="A7"/>
 <wire x1="96.52" y1="40.64" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
 <label x="88.9" y="40.64" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="WE0" class="0">
-<segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PD0"/>
-<wire x1="73.66" y1="12.7" x2="81.28" y2="12.7" width="0.1524" layer="91"/>
-<label x="76.2" y="12.7" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="EEP0" gate="A" pin="!WE"/>
-<wire x1="96.52" y1="22.86" x2="88.9" y2="22.86" width="0.1524" layer="91"/>
-<label x="88.9" y="22.86" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D7" class="0">
 <segment>
 <wire x1="73.66" y1="53.34" x2="81.28" y2="53.34" width="0.1524" layer="91"/>
 <label x="78.74" y="53.34" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC7"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC7"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="40.64" x2="129.54" y2="40.64" width="0.1524" layer="91"/>
 <label x="127" y="40.64" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D7"/>
+<pinref part="EEP" gate="A" pin="D7"/>
 </segment>
 </net>
 <net name="D6" class="0">
 <segment>
 <wire x1="73.66" y1="50.8" x2="81.28" y2="50.8" width="0.1524" layer="91"/>
 <label x="78.74" y="50.8" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC6"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC6"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="43.18" x2="129.54" y2="43.18" width="0.1524" layer="91"/>
 <label x="127" y="43.18" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D6"/>
+<pinref part="EEP" gate="A" pin="D6"/>
 </segment>
 </net>
 <net name="D5" class="0">
 <segment>
 <wire x1="73.66" y1="48.26" x2="81.28" y2="48.26" width="0.1524" layer="91"/>
 <label x="78.74" y="48.26" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC5"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC5"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="45.72" x2="129.54" y2="45.72" width="0.1524" layer="91"/>
 <label x="127" y="45.72" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D5"/>
+<pinref part="EEP" gate="A" pin="D5"/>
 </segment>
 </net>
 <net name="D4" class="0">
 <segment>
 <wire x1="73.66" y1="45.72" x2="81.28" y2="45.72" width="0.1524" layer="91"/>
 <label x="78.74" y="45.72" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC4"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC4"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="48.26" x2="129.54" y2="48.26" width="0.1524" layer="91"/>
 <label x="127" y="48.26" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D4"/>
+<pinref part="EEP" gate="A" pin="D4"/>
 </segment>
 </net>
 <net name="D3" class="0">
 <segment>
 <wire x1="73.66" y1="43.18" x2="81.28" y2="43.18" width="0.1524" layer="91"/>
 <label x="78.74" y="43.18" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC3"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC3"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="50.8" x2="129.54" y2="50.8" width="0.1524" layer="91"/>
 <label x="127" y="50.8" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D3"/>
+<pinref part="EEP" gate="A" pin="D3"/>
 </segment>
 </net>
 <net name="D2" class="0">
 <segment>
 <wire x1="73.66" y1="40.64" x2="81.28" y2="40.64" width="0.1524" layer="91"/>
 <label x="78.74" y="40.64" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC2"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC2"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="53.34" x2="129.54" y2="53.34" width="0.1524" layer="91"/>
 <label x="127" y="53.34" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D2"/>
+<pinref part="EEP" gate="A" pin="D2"/>
 </segment>
 </net>
 <net name="D1" class="0">
 <segment>
 <wire x1="73.66" y1="38.1" x2="81.28" y2="38.1" width="0.1524" layer="91"/>
 <label x="78.74" y="38.1" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC1"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC1"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="55.88" x2="129.54" y2="55.88" width="0.1524" layer="91"/>
 <label x="127" y="55.88" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D1"/>
+<pinref part="EEP" gate="A" pin="D1"/>
 </segment>
 </net>
 <net name="D0" class="0">
 <segment>
 <wire x1="73.66" y1="35.56" x2="81.28" y2="35.56" width="0.1524" layer="91"/>
 <label x="78.74" y="35.56" size="1.778" layer="95"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PC0"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PC0"/>
 </segment>
 <segment>
 <wire x1="121.92" y1="58.42" x2="129.54" y2="58.42" width="0.1524" layer="91"/>
 <label x="127" y="58.42" size="1.778" layer="95"/>
-<pinref part="EEP0" gate="A" pin="D0"/>
+<pinref part="EEP" gate="A" pin="D0"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -5861,12 +5849,7 @@ Source: www.kingbright.com</description>
 </net>
 <net name="VCC" class="0">
 <segment>
-<pinref part="EEP0" gate="A" pin="!OE"/>
-<wire x1="88.9" y1="25.4" x2="96.52" y2="25.4" width="0.1524" layer="91"/>
-<label x="88.9" y="25.4" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="EEP0" gate="P" pin="VCC"/>
+<pinref part="EEP" gate="P" pin="VCC"/>
 <wire x1="101.6" y1="15.24" x2="93.98" y2="15.24" width="0.1524" layer="91"/>
 <label x="93.98" y="15.24" size="1.778" layer="95"/>
 </segment>
@@ -5879,7 +5862,7 @@ Source: www.kingbright.com</description>
 </net>
 <net name="PDI_CLK" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="!RESET!/PDI_CLK"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="!RESET!/PDI_CLK"/>
 <wire x1="20.32" y1="88.9" x2="7.62" y2="88.9" width="0.1524" layer="91"/>
 <label x="7.62" y="88.9" size="1.778" layer="95"/>
 </segment>
@@ -5891,7 +5874,7 @@ Source: www.kingbright.com</description>
 </net>
 <net name="PDI_DATA" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PDI_DATA"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PDI_DATA"/>
 <wire x1="20.32" y1="83.82" x2="7.62" y2="83.82" width="0.1524" layer="91"/>
 <label x="7.62" y="83.82" size="1.778" layer="95"/>
 </segment>
@@ -5903,11 +5886,11 @@ Source: www.kingbright.com</description>
 </net>
 <net name="+3V3" class="0">
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="AVCC"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="VCC2"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="VCC1"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="AVCC"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="VCC2"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="VCC1"/>
 <wire x1="20.32" y1="68.58" x2="20.32" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="XMEGA128A4U" gate="G$1" pin="VCC"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="VCC"/>
 <wire x1="20.32" y1="66.04" x2="20.32" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="63.5" x2="12.7" y2="63.5" width="0.1524" layer="91"/>
 <label x="12.7" y="63.5" size="1.778" layer="95"/>
@@ -5954,7 +5937,7 @@ Source: www.kingbright.com</description>
 <label x="142.24" y="91.44" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PR1(XT1)"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PR1(XT1)"/>
 <wire x1="20.32" y1="30.48" x2="12.7" y2="30.48" width="0.1524" layer="91"/>
 <label x="12.7" y="30.48" size="1.778" layer="95"/>
 </segment>
@@ -5966,9 +5949,31 @@ Source: www.kingbright.com</description>
 <label x="160.02" y="76.2" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="XMEGA128A4U" gate="G$1" pin="PR0(XT2)"/>
+<pinref part="XMEGA16A4U" gate="G$1" pin="PR0(XT2)"/>
 <wire x1="20.32" y1="25.4" x2="12.7" y2="25.4" width="0.1524" layer="91"/>
 <label x="12.7" y="25.4" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="OE" class="0">
+<segment>
+<pinref part="EEP" gate="A" pin="!OE"/>
+<wire x1="88.9" y1="25.4" x2="96.52" y2="25.4" width="0.1524" layer="91"/>
+<label x="88.9" y="25.4" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="73.66" y1="12.7" x2="81.28" y2="12.7" width="0.1524" layer="91"/>
+<label x="78.74" y="12.7" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="WE" class="0">
+<segment>
+<pinref part="EEP" gate="A" pin="!WE"/>
+<wire x1="96.52" y1="22.86" x2="88.9" y2="22.86" width="0.1524" layer="91"/>
+<label x="88.9" y="22.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="73.66" y1="15.24" x2="81.28" y2="15.24" width="0.1524" layer="91"/>
+<label x="78.74" y="15.24" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
