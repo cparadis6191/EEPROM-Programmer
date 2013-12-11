@@ -5,7 +5,7 @@ AVRDUDE=avrdude
 ADFLAGS=-p x16a4 -c dragon_pdi -P usb
 
 TARGET=EEPROM-Programmer
-OBJS=${TARGET}.o eeprom.o
+OBJS=${TARGET}.o eeprom.o io.o
 .PHONY: flash erase clean
 
 
@@ -16,6 +16,7 @@ ${TARGET}.obj: ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} -o ${TARGET}.obj
 
 eeprom.o: eeprom.h
+io.o: io.h
 ${TARGET}.obj: ${OBJS}
 
 
